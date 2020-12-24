@@ -27,8 +27,13 @@ def show_graph(csv_data):
         except ValueError:
             graph_data.append([row['location'], 0])
 
-    graph_data.sort(key=itemgetter(1))
-    print(graph_data)
+    graph_data.sort(key=itemgetter(1),reverse=True)
+    max_num = graph_data[1][1]
+    for country in graph_data:
+        print(f"{country[0]} ", end='\n')
+        graph = "#"*round(country[1]/max_num*100)
+        print(graph, end='\t')
+        print(country[1])
 
 
 show_graph(csv_getter(URL))
