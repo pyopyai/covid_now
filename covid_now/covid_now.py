@@ -2,7 +2,7 @@ import csv
 import requests
 from operator import itemgetter
 
-DATA_LOCATION = '/tmp/covid_now/owid-covid-latest.csv'
+# DATA_LOCATION = '/tmp/covid_now/owid-covid-latest.csv'
 URL = 'https://github.com/owid/covid-19-data/raw/master/public/data/latest/owid-covid-latest.csv'
 
 
@@ -28,11 +28,14 @@ def show_graph(csv_data):
             graph_data.append([row['location'], 0])
 
     graph_data.sort(key=itemgetter(1),reverse=True)
-    max_num = graph_data[1][1]
+    max_num = graph_data[0][1]
     for country in graph_data:
         print(f"{country[0]} ", end='\n')
-        graph = "#"*round(country[1]/max_num*100)
-        print(graph, end='\t')
+        graph = round(country[1]/max_num*300)
+        for _ in range(graph//67):
+            print("#"*67,end='\n')
+        else:
+            print('#'*(graph%67),end=' ')
         print(country[1])
 
 
