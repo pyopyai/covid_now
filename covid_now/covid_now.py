@@ -36,7 +36,7 @@ def show_graph(csv_data):
             print("#"*67,end='\n')
         else:
             print('#'*(graph%67),end=' ')
-        print(country[1])
+        print(round(country[1]))
 
 
 show_graph(csv_getter(URL))
