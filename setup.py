@@ -4,8 +4,8 @@ setup(
     name='covid-now',
     version="0.0.1",
     description='',
-    author='fujisawa',
-    url='',
+    author='pyopyai',
+    url='https://github.com/pyopyai/covid_now',
     install_requires=["requests"],
     packages=find_packages(exclude=["tests"]),
     entry_points={
