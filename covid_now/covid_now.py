@@ -2,14 +2,7 @@ import csv
 import requests
 from operator import itemgetter
 
-# DATA_LOCATION = '/tmp/covid_now/owid-covid-latest.csv'
 URL = 'https://github.com/owid/covid-19-data/raw/master/public/data/latest/owid-covid-latest.csv'
-
-
-# with open(DATA_LOCATION) as csvfile:
-#     reader = csv.DictReader(csvfile, delimiter=',', quotechar='"')
-#     for row in reader:
-#         print(row['location'], row['total_cases'])
 
 
 def csv_getter(url):
@@ -36,7 +29,10 @@ def show_graph(csv_data):
             print("#"*67,end='\n')
         else:
             print('#'*(graph%67),end=' ')
-        print(country[1])
+        print(round(country[1]))
 
 
-show_graph(csv_getter(URL))
+def main():
+    show_graph(csv_getter(URL))
+
+
