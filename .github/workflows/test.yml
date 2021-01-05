@@ -13,6 +13,7 @@ jobs:
         architecture: 'x64'
     - name: unittest
       run: |
+        pip3 install requests
         make unittest
 #    - name: doctest
 #      run: |
