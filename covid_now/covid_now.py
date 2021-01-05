@@ -5,13 +5,13 @@ from operator import itemgetter
 URL = 'https://github.com/owid/covid-19-data/raw/master/public/data/latest/owid-covid-latest.csv'
 
 
-def csv_getter(url):
+def csv_getter(url: str) -> list:
     r = requests.get(url)
     decoded_content = r.content.decode('utf-8')
     return decoded_content.splitlines()
 
 
-def show_graph(csv_data):
+def show_graph(csv_data: list):
     reader = csv.DictReader(csv_data, delimiter=',', quotechar='"')
     graph_data = list()
     for row in reader:
